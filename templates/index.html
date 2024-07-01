@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="static/main.css" type="text/css" media="screen" charset="utf-8"/>
+        {{ toastr.include_jquery() }}
+        {{ toastr.include_toastr_css() }}
+        <script type=text/javascript>
+            function validateFoods() {
+                var input_foods_str = $('textarea#groceries').val();
+                var unfiltered_input_foods = input_foods_str.split("\n")
+                var input_foods = unfiltered_input_foods.filter(Boolean)
+                var all_foods = {{ all_foods|tojson }};
+                let input_foods_diff = input_foods.filter(val => !all_foods.includes(val));
+                if (input_foods_diff.length != 0){
+                    toastr.error(`Unknown foods: ${input_foods_diff}`);
+                    event.preventDefault();
+                }
+                else {
+                    return true
+                }
+            };
+        </script>
+        <title>Grocery list departmentizer</title>
+    </head>
+    <body>
+        {{ toastr.include_toastr_js() }}
+        <h1>Enter your grocery list below</h1>
+        <p>Use a new line for each item.  Use only plurals (mangoes instead of mango) or uncountable nouns (like milk or celery).
+        <br/> No organization necessary.</p>
+        
+        <form action="/result" method="POST" onsubmit="return validateFoods();">
+            <textarea id="groceries" class="text" cols="86" rows ="20" name="groceries"></textarea>
+            <br/>
+            <input type="button" class="button" type="submit" value="Organize it">
+        </form>
+    </body>
+</html>

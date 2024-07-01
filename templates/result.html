@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="static/main.css" type="text/css" media="screen" charset="utf-8"/>
+
+
+
+<html>
+    <head>
+        <link rel="stylesheet" href="static/main.css" type="text/css" media="screen" charset="utf-8"/>
+        <title>Results</title>
+    </head>
+    <body>
+      {% for dept in grocery_list %}
+      <b>{{ dept.capitalize() }}</b>
+      <ul style="list-style-type:none;">
+      {% for food in grocery_list[dept] %}
+        <li> &#9744; {{ food.capitalize() }}</li>
+      {% endfor %}
+      </ul>
+      {% endfor %}
+      </br>
+    <button type="button" onclick="javascript:history.back()">Back</button>
+    </body>
+</html>

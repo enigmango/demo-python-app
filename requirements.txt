@@ -1,0 +1,20 @@
+# These are frozen to what I was using at the time. If you run into dependency issues or these become terribly out of date, just use the basics:
+#
+# flask
+# flask-toastr
+# pyyaml
+# gunicorn
+#
+
+
+blinker==1.8.2
+click==8.1.7
+Flask==3.0.3
+Flask-Toastr==0.5.8
+gunicorn==22.0.0
+itsdangerous==2.2.0
+Jinja2==3.1.4
+MarkupSafe==2.1.5
+packaging==24.1
+PyYAML==6.0.1
+Werkzeug==3.0.3
