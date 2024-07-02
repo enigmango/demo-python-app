@@ -13,3 +13,9 @@ Clicking the submit button will bring up a list of your foods grouped by departm
 # !! Install requirements first with pip install -r requirements.txt or pipenv install from the root directory !!
 gunicorn app:flask_app
 ```
+
+
+
+# heroku git:remote --app=tyler-doit-demo-staging -r heroku-staging
+# --- no --- needs main --- git push heroku-staging staging
+# git push heroku-staging staging:main
