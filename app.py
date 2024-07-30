@@ -29,7 +29,12 @@ def group_by_department(input_groceries):
 
 @flask_app.route("/")
 def index():
-    return render_template("index.html", all_foods=list(FOODS_BY_DEPT), environment_name=os.environ["ENVIRONMENT_NAME"])
+    return render_template(
+        "index.html",
+        all_foods=list(FOODS_BY_DEPT),
+        environment_name=os.environ["ENVIRONMENT_NAME"],
+        version=os.environ["VERSION"]
+    )
 
 
 @flask_app.route("/result", methods=["POST"])
