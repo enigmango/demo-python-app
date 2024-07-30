@@ -1,6 +1,7 @@
 from collections import defaultdict
 from flask import Flask, render_template, request
 from flask_toastr import Toastr
+import os
 import yaml
 
 flask_app = Flask(__name__)
@@ -28,7 +29,7 @@ def group_by_department(input_groceries):
 
 @flask_app.route("/")
 def index():
-    return render_template("index.html", all_foods=list(FOODS_BY_DEPT))
+    return render_template("index.html", all_foods=list(FOODS_BY_DEPT), environment_name=os.environ["ENVIRONMENT_NAME"])
 
 
 @flask_app.route("/result", methods=["POST"])
