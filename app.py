@@ -32,8 +32,8 @@ def index():
     return render_template(
         "index.html",
         all_foods=list(FOODS_BY_DEPT),
-        environment_name=os.environ["ENVIRONMENT_NAME"],
-        version=os.environ["VERSION"]
+        environment_name=os.getenv("ENVIRONMENT_NAME", "UNKNOWN"),
+        version=os.getenv("VERSION", "?.?.?")
     )
 
 
